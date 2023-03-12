@@ -1,0 +1,14 @@
+/tmp
+*/**/*un~
+*/**/*.test
+*un~
+.DS_Store
+
+.project
+.settings
+
+# IdeaIDE
+.idea
+
+# VS Code
+.vscode
