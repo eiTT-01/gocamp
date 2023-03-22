@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option go_package = "./user";
+
+import "google/protobuf/timestamp.proto";
+
+package user;
+
+service UserService {
+  rpc AddUser(AddUserRequest) returns(AddUserResponse) {}
+}
+
+enum Gender {
+  Male = 0;
+  Female = 1;
+}
+
+message AddUserRequest {
+  string Username = 1;
+  string Password = 2;
+  string Email = 3;
+  Gender gender = 4;
+  map<string, string> Tags = 5;
+}
+
+message AddUserResponse {
+  int32 Code = 1;
+  string Message = 2;
+  AddUserResponseData Data = 3;
+}
+
+message AddUserResponseData {
+  string Username = 1;
+  string Password = 2;
+  string Email = 3;
+  Gender gender = 4;
+  int64 CreatedAt = 5;
+  google.protobuf.Timestamp UpdatedAt = 6;
+  map<string, string> Tags = 7;
+}
